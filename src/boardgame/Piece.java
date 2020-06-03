@@ -15,7 +15,7 @@ public class Piece {
 		// posicao de uma peca recem criada
 		position = null;
 	}
-
+	// metodo getBoard.Protected= de uso interno da camada tabuleiro
 	protected Board getBoard() {
 		return board;
 	}

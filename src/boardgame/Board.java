@@ -4,13 +4,12 @@ public class Board {
 	
 	private int rows;
 	private int columns;
-	private Piece[][] pieces;
+	private Piece[][] matriz_pieces;
 	
 	public Board(int rows, int columns) {
 		this.rows = rows;
 		this.columns = columns;
-		pieces = new Piece[rows][columns];
-		
+		matriz_pieces = new Piece[rows][columns];
 		
 	}
 
@@ -31,13 +30,16 @@ public class Board {
 	}
 	
 	public Piece piece (int row, int column) {
-		return pieces[row][column];
+		return matriz_pieces[row][column];
 	}
 	
 	public Piece piece (Position position) {
-		return pieces [position.getRow()] [position.getColumn()];
+		return matriz_pieces [position.getRow()] [position.getColumn()];
 	}
-	
-	
+	// metodo  coloca uma peca no tabuleiro
+	public void placePiece(Piece piece, Position position) {
+		matriz_pieces[position.getRow()][position.getColumn()]=piece;
+		piece.position = position;
+	}
 
 }
