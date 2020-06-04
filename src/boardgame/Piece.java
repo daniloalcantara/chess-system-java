@@ -1,6 +1,6 @@
 package boardgame;
 
-public class Piece {
+public abstract class Piece {
 
 	// protected pq esta posição não e a posicao do tabuleiro ainda. 
 	// E somente uma posicao de matrix
@@ -20,6 +20,23 @@ public class Piece {
 		return board;
 	}
 
+	public abstract boolean [][] possibleMoves();
+	
+	public boolean possibleMoves (Position position) {
+		return possibleMoves ()[position.getRow()][position.getColumn()];
+	}
+	
+	public boolean isThereAnyPossibleMove() {
+		boolean[][] matriz = possibleMoves();
+		for (int i=0; i< matriz.length; i++) {
+			for (int j=0 ; j< matriz.length; j++) {
+				if (matriz [i][j]) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
 	
 	
 	
